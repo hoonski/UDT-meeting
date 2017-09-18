@@ -1,18 +1,28 @@
 package com.example.kwon_younghoon.udt_meeting;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class Main extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
+    private CustomDialog mCustomDialog;
+    private ListView listView;
+    private ArrayList<FriendData> arrayList = new ArrayList<FriendData>();
+    private FriendAdapter friendAdapter;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +44,7 @@ public class Main extends AppCompatActivity {
                 menuItem.setChecked(true);
                 mDrawerLayout.closeDrawers();
 
+
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.my_information:
@@ -41,7 +52,8 @@ public class Main extends AppCompatActivity {
                         break;
 
                     case R.id.friends_list:
-                        Toast.makeText(Main.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+                        mCustomDialog = new CustomDialog(Main.this, "친구 목록", colseListener, rightListener);
+                        mCustomDialog.show();
                         break;
 
                     case R.id.setting:
@@ -57,12 +69,26 @@ public class Main extends AppCompatActivity {
                         break;
 
                 }
-
                 return true;
             }
         });
 
     }
+
+
+    private View.OnClickListener colseListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            mCustomDialog.dismiss();
+        }
+    };
+
+    private View.OnClickListener rightListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            Toast.makeText(getApplicationContext(), "오른쪽버튼 클릭",
+                    Toast.LENGTH_SHORT).show();
+        }
+    };
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

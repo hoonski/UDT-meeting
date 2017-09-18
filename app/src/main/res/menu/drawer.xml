@@ -17,16 +17,16 @@
             android:title="환경설정" />
     </group>
 
-    <item android:title="@string/nav_sub_menu">
+    <item android:title="sub_menu">
         <menu>
             <item
                 android:icon="@drawable/ic_emoticon"
                 android:id="@+id/nav_sub_menu_item01"
-                android:title="@string/nav_sub_menu_item01" />
+                android:title="sub_menu_item01" />
             <item
                 android:icon="@drawable/ic_emoticon"
                 android:id="@+id/nav_sub_menu_item02"
-                android:title="@string/nav_sub_menu_item02" />
+                android:title="sub_menu_item02" />
         </menu>
     </item>
 

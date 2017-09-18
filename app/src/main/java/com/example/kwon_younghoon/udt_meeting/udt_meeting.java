@@ -23,6 +23,7 @@ public class udt_meeting extends AppCompatActivity {
     Button fakeKakao;
     com.kakao.usermgmt.LoginButton button1;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +42,8 @@ public class udt_meeting extends AppCompatActivity {
         callback = new SessionCallback();
         Session.getCurrentSession().addCallback(callback);
 
-        fakeKakao = (Button)findViewById(R.id.fake_kakao);
-        button1 = (com.kakao.usermgmt.LoginButton)findViewById(R.id.com_kakao_login);
+        fakeKakao = (Button) findViewById(R.id.fake_kakao);
+        button1 = (com.kakao.usermgmt.LoginButton) findViewById(R.id.com_kakao_login);
         fakeKakao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,6 +51,7 @@ public class udt_meeting extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -94,7 +96,7 @@ public class udt_meeting extends AppCompatActivity {
                     //로그인에 성공하면 로그인한 사용자의 일련번호, 닉네임, 이미지url등을 리턴합니다.
                     //사용자 ID는 보안상의 문제로 제공하지 않고 일련번호는 제공합니다.
                     Log.e("UserProfile", userProfile.toString());
-                    Intent intent = new Intent(udt_meeting.this, SuccessActivity.class);
+                    Intent intent = new Intent(udt_meeting.this, Main.class);
                     startActivity(intent);
                     finish();
                 }
@@ -109,7 +111,7 @@ public class udt_meeting extends AppCompatActivity {
         }
     }
 
-
 }
+
 
 

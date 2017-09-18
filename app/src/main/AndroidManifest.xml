@@ -15,7 +15,6 @@
         <activity android:name=".Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -24,9 +23,9 @@
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
 
-        <activity android:name=".SuccessActivity" />
-        <activity android:name=".udt_metting" />
-        <activity android:name=".information"></activity>
+        <activity android:name=".CustomDialog" />
+        <activity android:name=".udt_meeting" />
+        <activity android:name=".information" />
     </application>
 
 </manifest>

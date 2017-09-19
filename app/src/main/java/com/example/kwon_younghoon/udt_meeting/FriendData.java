@@ -10,7 +10,7 @@ public class FriendData {
     private String name;
     private String number;
 
-    public FriendData(int image, String name ,String nikname, String number) {
+    public FriendData() {
         this.image = image;
         this.name = name;
         this.nikname = nikname;
@@ -31,7 +31,19 @@ public class FriendData {
         return number;
     }
 
-//    public void setNikname(String nikname) {
-//        this.nikname = nikname;
-//    }
+    public void setImage(int image) {
+        this.image = image;
+    }
+
+    public void setNikname(String nikname) {
+        this.nikname = nikname;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
 }

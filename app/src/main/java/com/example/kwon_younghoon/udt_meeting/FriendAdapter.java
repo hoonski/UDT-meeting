@@ -131,6 +131,3 @@ public class FriendAdapter extends BaseAdapter implements Filterable {
         }
     }
 }
-
-
-

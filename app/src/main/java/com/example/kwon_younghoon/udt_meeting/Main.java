@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class Main extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private CustomDialog mCustomDialog;
+    private CustomDialog_inf mCustomDialoginf;
     private ListView listView;
     private ArrayList<FriendData> arrayList = new ArrayList<FriendData>();
     private FriendAdapter friendAdapter;
@@ -48,7 +49,8 @@ public class Main extends AppCompatActivity {
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.my_information:
-                        Toast.makeText(Main.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+                        mCustomDialoginf = new CustomDialog_inf(Main.this, "내정보", colseListener_info, rightListener);
+                        mCustomDialoginf.show();
                         break;
 
                     case R.id.friends_list:
@@ -79,6 +81,12 @@ public class Main extends AppCompatActivity {
     private View.OnClickListener colseListener = new View.OnClickListener() {
         public void onClick(View v) {
             mCustomDialog.dismiss();
+        }
+    };
+
+    private View.OnClickListener colseListener_info = new View.OnClickListener() {
+        public void onClick(View v) {
+            mCustomDialoginf.dismiss();
         }
     };
 

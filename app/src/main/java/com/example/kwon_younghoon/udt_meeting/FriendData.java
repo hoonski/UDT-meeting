@@ -21,9 +21,7 @@ public class FriendData {
         return image;
     }
 
-    public String getNikname() {
-        return nikname;
-    }
+    public String getNikname() { return nikname; }
 
     public String getName() { return name; }
 

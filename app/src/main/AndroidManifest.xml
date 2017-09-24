@@ -15,6 +15,7 @@
         <activity android:name=".Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,6 +27,7 @@
         <activity android:name=".CustomDialog" />
         <activity android:name=".udt_meeting" />
         <activity android:name=".information" />
+        <activity android:name=".CustomDialog_inf"></activity>
     </application>
 
 </manifest>

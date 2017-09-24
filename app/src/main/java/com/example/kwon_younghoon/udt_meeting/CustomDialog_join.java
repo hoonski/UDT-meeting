@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by kwon-younghoon on 2017. 9. 24..
  */
-public class CustomDialog_inf extends Dialog {
+public class CustomDialog_join extends Dialog {
 
     private TextView mTitleView;
     private Button mCloseButton;
@@ -35,11 +35,11 @@ public class CustomDialog_inf extends Dialog {
         lpWindow_inf.dimAmount = 0.8f;
         getWindow().setAttributes(lpWindow_inf);
 
-        setContentView(R.layout.activity_custom_dialog_inf);
+        setContentView(R.layout.activity_custom_dialog_join);
 
-        mTitleView = (TextView) findViewById(R.id.info_text);
-        mCloseButton = (Button) findViewById(R.id.info_close);
-        mRightButton = (Button) findViewById(R.id.info_btn);
+        mTitleView = (TextView) findViewById(R.id.join_text);
+        mCloseButton = (Button) findViewById(R.id.join_close);
+        mRightButton = (Button) findViewById(R.id.join_btn);
 
         // 제목과 내용을 생성자에서 셋팅한다.
         mTitleView.setText(mTitle);
@@ -56,21 +56,21 @@ public class CustomDialog_inf extends Dialog {
     }
 
     // 클릭버튼이 하나일때 생성자 함수로 클릭이벤트를 받는다.
-    public CustomDialog_inf(Context context, String title,
-                            View.OnClickListener closeListener_info) {
+    public CustomDialog_join(Context context, String title,
+                            View.OnClickListener closeListener_join) {
         super(context, android.R.style.Theme_Translucent_NoTitleBar);
         this.mTitle = title;
-        this.mCloseClickListener = closeListener_info;
+        this.mCloseClickListener = closeListener_join;
         this.context = context;
     }
 
     // 클릭버튼이 확인과 취소 두개일때 생성자 함수로 이벤트를 받는다
-    public CustomDialog_inf(Context context, String title
-            , View.OnClickListener closeListener_info,
+    public CustomDialog_join(Context context, String title
+            , View.OnClickListener closeListener_join,
                             View.OnClickListener rightListener) {
         super(context, android.R.style.Theme_Translucent_NoTitleBar);
         this.mTitle = title;
-        this.mCloseClickListener = closeListener_info;
+        this.mCloseClickListener = closeListener_join;
         this.mRightClickListener = rightListener;
         this.context = context;
     }

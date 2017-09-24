@@ -102,10 +102,8 @@ public class CustomDialog extends Dialog {
         friendAdapter = new FriendAdapter();
         friendAdapter.addItem(R.drawable.a, "gegnnjr", "geg", "15");
         friendAdapter.addItem(R.drawable.a, "herweqr", "영훈", "16");
-        friendAdapter.addItem(R.drawable.a, "hfsagnjr", "지윤", "15");
-        friendAdapter.addItem(R.drawable.a, "hgaer", "영훈", "16");
-        friendAdapter.addItem(R.drawable.a, "jadhar", "지윤", "15");
-        friendAdapter.addItem(R.drawable.a, "hbvzxqr", "영훈", "16");
+        friendAdapter.addItem(R.drawable.a, "afsagnjr", "제웅", "15");
+        friendAdapter.addItem(R.drawable.a, "vgaer", "제넌", "16");
         listView.setAdapter(friendAdapter);
     }
 }

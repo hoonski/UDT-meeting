@@ -11,7 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -20,10 +20,14 @@ public class Main extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private CustomDialog mCustomDialog;
     private CustomDialog_inf mCustomDialoginf;
-    private ListView listView;
+    private CustomDialog_set mCustomDialogset;
+    private CustomDialog_join mCustomDialogjoin;
     private ArrayList<FriendData> arrayList = new ArrayList<FriendData>();
+    private ArrayList<Ingrid_item> arrayListItem = new ArrayList<>();
+    private ItemAdapter itemAdapter;
     private FriendAdapter friendAdapter;
     private Context context;
+    private GridView gridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,8 @@ public class Main extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        init();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -59,7 +65,8 @@ public class Main extends AppCompatActivity {
                         break;
 
                     case R.id.setting:
-                        Toast.makeText(Main.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+                        mCustomDialogset = new CustomDialog_set(Main.this, "환경 설정", colseListener_set);
+                        mCustomDialogset.show();
                         break;
 
                     case R.id.nav_sub_menu_item01:
@@ -90,12 +97,42 @@ public class Main extends AppCompatActivity {
         }
     };
 
+    private View.OnClickListener colseListener_set = new View.OnClickListener() {
+        public void onClick(View v) {
+            mCustomDialogset.dismiss();
+        }
+    };
+
+    private View.OnClickListener colseListener_join = new View.OnClickListener() {
+        public void onClick(View v) {
+            mCustomDialogjoin.dismiss();
+        }
+    };
+
     private View.OnClickListener rightListener = new View.OnClickListener() {
         public void onClick(View v) {
             Toast.makeText(getApplicationContext(), "오른쪽버튼 클릭",
                     Toast.LENGTH_SHORT).show();
         }
     };
+
+    void init() {
+        gridView = (GridView)findViewById(R.id.main_grid);
+        arrayListItem.add(new Ingrid_item(R.drawable.a));
+        arrayListItem.add(new Ingrid_item(R.drawable.a));
+        arrayListItem.add(new Ingrid_item(R.drawable.a));
+        arrayListItem.add(new Ingrid_item(R.drawable.a));
+        arrayListItem.add(new Ingrid_item(R.drawable.a));
+        arrayListItem.add(new Ingrid_item(R.drawable.a));
+        arrayListItem.add(new Ingrid_item(R.drawable.a));
+        arrayListItem.add(new Ingrid_item(R.drawable.a));
+        arrayListItem.add(new Ingrid_item(R.drawable.a));
+        arrayListItem.add(new Ingrid_item(R.drawable.a));
+        arrayListItem.add(new Ingrid_item(R.drawable.a));
+        arrayListItem.add(new Ingrid_item(R.drawable.a));
+        itemAdapter = new ItemAdapter(arrayListItem, this);
+        gridView.setAdapter(itemAdapter);
+    }
 
 
     @Override
@@ -116,6 +153,8 @@ public class Main extends AppCompatActivity {
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 return true;
             case R.id.action_settings:
+                mCustomDialogjoin = new CustomDialog_join(Main.this, "방 목록", colseListener_join);
+                mCustomDialogjoin.show();
                 return true;
         }
 

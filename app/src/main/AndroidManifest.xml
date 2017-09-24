@@ -27,7 +27,9 @@
         <activity android:name=".CustomDialog" />
         <activity android:name=".udt_meeting" />
         <activity android:name=".information" />
-        <activity android:name=".CustomDialog_inf"></activity>
+        <activity android:name=".CustomDialog_inf" />
+        <activity android:name=".CustomDialog_set" />
+        <activity android:name=".CustomDialog_join"></activity>
     </application>
 
 </manifest>

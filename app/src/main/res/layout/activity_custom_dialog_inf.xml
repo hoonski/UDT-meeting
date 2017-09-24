@@ -40,7 +40,7 @@
                     android:layout_weight="87"
                     android:background="#265afd"
                     android:gravity="center"
-                    android:text="친구 목록"
+                    android:text="내 정보"
                     android:textColor="#bbffffff"
                     android:textSize="30dp" />
 
@@ -53,12 +53,82 @@
 
             </LinearLayout>
 
-            <View
+            <LinearLayout
                 android:layout_weight="80"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:background="#ffffff" >
-            </View>
+                android:orientation="vertical">
+
+                <View
+                    android:layout_weight="20"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="#ffffff">
+                </View>
+
+                <TextView
+                    android:id="@+id/info_name"
+                    android:textColor="#bb000000"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:layout_weight="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="#ffffff"
+                    android:text="이름" />
+
+                <TextView
+                    android:id="@+id/info_nikname"
+                    android:textColor="#bb000000"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:layout_weight="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="#ffffff"
+                    android:text="닉네임" />
+
+                <TextView
+                    android:id="@+id/info_undergraduate"
+                    android:textColor="#bb000000"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:layout_weight="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="#ffffff"
+                    android:text="학과/학부" />
+
+                <TextView
+                    android:id="@+id/info_number"
+                    android:textColor="#bb000000"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:layout_weight="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="#ffffff"
+                    android:text="학번" />
+
+                <TextView
+                    android:id="@+id/info_age"
+                    android:textColor="#bb000000"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:layout_weight="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="#ffffff"
+                    android:text="나이" />
+
+                <View
+                    android:layout_weight="20"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="#ffffff">
+                </View>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -93,6 +163,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="17"></View>
+        android:layout_weight="17">
+    </View>
 
 </LinearLayout>

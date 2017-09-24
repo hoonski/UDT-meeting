@@ -37,7 +37,6 @@ public class CustomDialog extends Dialog {
         lpWindow.dimAmount = 0.8f;
         getWindow().setAttributes(lpWindow);
 
-
         setContentView(R.layout.activity_custom_dialog);
 
 

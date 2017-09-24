@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,7 +19,6 @@ public class CustomDialog_inf extends Dialog {
     private Button mCloseButton;
     private Button mRightButton;
     private String mTitle;
-    ListView listView = null ;
     ArrayList<FriendData> arrayList = new ArrayList<FriendData>();
     FriendAdapter friendAdapter;
     private Context context;
@@ -33,11 +31,10 @@ public class CustomDialog_inf extends Dialog {
         setContentView(R.layout.activity_custom_dialog_inf);
 
         // 다이얼로그 외부 화면 흐리게 표현
-        WindowManager.LayoutParams lpWindow = new WindowManager.LayoutParams();
-        lpWindow.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        lpWindow.dimAmount = 0.8f;
-        getWindow().setAttributes(lpWindow);
-
+        WindowManager.LayoutParams lpWindow_inf = new WindowManager.LayoutParams();
+        lpWindow_inf.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        lpWindow_inf.dimAmount = 0.8f;
+        getWindow().setAttributes(lpWindow_inf);
 
         mTitleView = (TextView) findViewById(R.id.info_text);
         mCloseButton = (Button) findViewById(R.id.info_close);
@@ -54,26 +51,25 @@ public class CustomDialog_inf extends Dialog {
                 && mRightClickListener == null) {
             mCloseButton.setOnClickListener(mCloseClickListener);
         } else {
-
         }
     }
 
     // 클릭버튼이 하나일때 생성자 함수로 클릭이벤트를 받는다.
     public CustomDialog_inf(Context context, String title,
-                            View.OnClickListener singleListener) {
+                            View.OnClickListener closeListener_info) {
         super(context, android.R.style.Theme_Translucent_NoTitleBar);
         this.mTitle = title;
-        this.mCloseClickListener = singleListener;
-
+        this.mCloseClickListener = closeListener_info;
+        this.context = context;
     }
 
     // 클릭버튼이 확인과 취소 두개일때 생성자 함수로 이벤트를 받는다
     public CustomDialog_inf(Context context, String title
-            , View.OnClickListener closeListener,
+            , View.OnClickListener closeListener_info,
                             View.OnClickListener rightListener) {
         super(context, android.R.style.Theme_Translucent_NoTitleBar);
         this.mTitle = title;
-        this.mCloseClickListener = closeListener;
+        this.mCloseClickListener = closeListener_info;
         this.mRightClickListener = rightListener;
         this.context = context;
     }

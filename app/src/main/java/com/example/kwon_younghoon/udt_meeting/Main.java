@@ -49,7 +49,7 @@ public class Main extends AppCompatActivity {
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.my_information:
-                        mCustomDialoginf = new CustomDialog_inf(Main.this, "내정보", colseListener_info, rightListener);
+                        mCustomDialoginf = new CustomDialog_inf(Main.this, "내정보", colseListener_info);
                         mCustomDialoginf.show();
                         break;
 

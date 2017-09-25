@@ -2,16 +2,58 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="220dp"
     android:background="?attr/colorPrimaryDark"
-    android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:gravity="bottom">
 
-    <TextView
+    <LinearLayout
+        android:layout_weight="30"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="drawer_header.xml에서 레이아웃 변경"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+        android:layout_height="0dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="86"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+        <View
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </View>
+        <LinearLayout
+            android:layout_weight="5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_weight="20"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+            </View>
+
+            <ImageView
+                android:layout_weight="60"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:src="@drawable/a"/>
+
+            <View
+                android:layout_weight="20"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+            </View>
+
+        </LinearLayout>
+        <View
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </View>
+    </LinearLayout>
 
 </LinearLayout>

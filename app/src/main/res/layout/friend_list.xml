@@ -12,13 +12,13 @@
 
         <ImageView
             android:id="@+id/friends_gender"
-            android:layout_weight="3"
+            android:layout_weight="25"
             android:layout_width="0dp"
             android:layout_height="30dp" />
 
         <TextView
             android:id="@+id/friends_nikname"
-            android:layout_weight="11"
+            android:layout_weight="100"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:textColor="#bb000000"
@@ -26,7 +26,7 @@
 
         <TextView
             android:id="@+id/friends_name"
-            android:layout_weight="5"
+            android:layout_weight="45"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:textColor="#bb000000"
@@ -34,16 +34,33 @@
 
         <TextView
             android:id="@+id/friends_number"
-            android:layout_weight="4"
+            android:layout_weight="30"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:textColor="#bb000000"
             android:gravity="center"/>
 
         <View
-            android:layout_weight="3"
+            android:layout_weight="8"
             android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+        </View>
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:visibility="invisible"
+            android:layout_weight="50"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="#265afd"
+            android:text="삭제"
+            android:textColor="#ffffff"/>
+
+        <View
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </View>
 
     </LinearLayout>
 

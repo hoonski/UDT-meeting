@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -23,7 +24,9 @@ public class FriendAdapter extends BaseAdapter implements Filterable {
     // 필터링된 결과 데이터를 저장하기 위한 ArrayList. 최초에는 전체 리스트 보유.
     private ArrayList<FriendData> filteredDatalist = friendDatalist;
     Context context;
+    boolean edit=false;
     Filter listFilter;
+    Button button;
 
     public FriendAdapter() {
 
@@ -47,7 +50,7 @@ public class FriendAdapter extends BaseAdapter implements Filterable {
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
+    public View getView(final int position, View view, ViewGroup viewGroup) {
         final int pos = position;
         final Context context = viewGroup.getContext();
         // listview_item Layout을 inflate하여 view 참조 획득.
@@ -59,6 +62,23 @@ public class FriendAdapter extends BaseAdapter implements Filterable {
         TextView t1 = (TextView)view.findViewById(R.id.friends_name);
         TextView t2 = (TextView)view.findViewById(R.id.friends_nikname);
         TextView t3 = (TextView)view.findViewById(R.id.friends_number);
+        button = (Button)view.findViewById(R.id.btn_delete);
+
+        if(edit){
+            button.setVisibility(View.VISIBLE);
+//            notifyDataSetChanged();
+        }
+        else{
+            button.setVisibility(View.INVISIBLE);
+        }
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                friendDatalist.remove(position);
+                notifyDataSetChanged();
+            }
+        });
 
         // Data Set(FriendData)에서 position에 위치한 데이터 참조 획득
         FriendData friendData = filteredDatalist.get(position);
@@ -90,6 +110,7 @@ public class FriendAdapter extends BaseAdapter implements Filterable {
         }
         return listFilter;
     }
+
 
     private class ListFilter extends Filter {
 

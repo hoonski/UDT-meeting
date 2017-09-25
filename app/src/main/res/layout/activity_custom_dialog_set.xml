@@ -44,12 +44,6 @@
                     android:textColor="#bbffffff"
                     android:textSize="30dp" />
 
-                <Button
-                    android:id="@+id/set_close"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="14"
-                    android:background="#265afd" />
 
             </LinearLayout>
 
@@ -68,7 +62,7 @@
                 android:orientation="horizontal">
 
                 <View
-                    android:layout_weight="90"
+                    android:layout_weight="86"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:background="#ffffff">
@@ -78,8 +72,16 @@
                     android:id="@+id/set_btn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="10"
                     android:background="#ffffff"/>
+
+                <Button
+                    android:id="@+id/set_close"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="14"
+                    android:background="#265afd"
+                    android:text="닫기"
+                    android:textColor="#ffffff"/>
             </LinearLayout>
 
         </LinearLayout>

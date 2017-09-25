@@ -45,11 +45,13 @@
                     android:textSize="30dp" />
 
                 <Button
-                    android:id="@+id/btn_close"
+                    android:id="@+id/btn_edit"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="14"
-                    android:background="#265afd" />
+                    android:background="#265afd"
+                    android:textColor="#ffffff"
+                    android:text="편집"/>
 
             </LinearLayout>
 
@@ -83,11 +85,21 @@
                 </View>
 
                 <Button
+                    android:visibility="gone"
                     android:id="@+id/btn_right"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="#ffffff"
-                    android:layout_weight="10" />
+                    android:background="#ffffff" />
+
+                <Button
+                    android:id="@+id/btn_close"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="14"
+                    android:background="#265afd"
+                    android:text="닫기"
+                    android:textColor="#ffffff"/>
+
             </LinearLayout>
 
         </LinearLayout>

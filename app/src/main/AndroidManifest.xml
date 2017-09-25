@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main">
+        <activity android:name="Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +29,8 @@
         <activity android:name=".information" />
         <activity android:name=".CustomDialog_inf" />
         <activity android:name=".CustomDialog_set" />
-        <activity android:name=".CustomDialog_join"></activity>
+        <activity android:name=".CustomDialog_join" />
+        <activity android:name=".CustomDialog_addR"></activity>
     </application>
 
 </manifest>

@@ -9,23 +9,27 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class CustomDialog extends Dialog {
+public class CustomDialog_addR extends Dialog {
 
     private TextView mTitleView;
     private Button mCloseButton;
-    private Button mEditButton;
+    private Button mCloseButton1;
+    private Button mConfButton;
     private String mTitle;
     ListView listView = null ;
     ArrayList<FriendData> arrayList = new ArrayList<FriendData>();
     FriendAdapter friendAdapter;
     private Context context;
     private View.OnClickListener mCloseClickListener;
-    private View.OnClickListener mEditClickListener;
+    private View.OnClickListener mConfClickListener;
+    private LinearLayout linearLayout;
+    private LinearLayout linearLayout1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +41,7 @@ public class CustomDialog extends Dialog {
         lpWindow.dimAmount = 0.8f;
         getWindow().setAttributes(lpWindow);
 
-        setContentView(R.layout.activity_custom_dialog);
+        setContentView(R.layout.activity_custom_dialog_add_r);
 
 
         init();
@@ -60,28 +64,36 @@ public class CustomDialog extends Dialog {
 
         mTitleView = (TextView) findViewById(R.id.txt_title);
         mCloseButton = (Button) findViewById(R.id.btn_close);
-        mEditButton = (Button) findViewById(R.id.btn_edit);
-        mEditButton.setOnClickListener(new View.OnClickListener() {
+        mCloseButton1 = (Button) findViewById(R.id.btn_close0);
+        mConfButton = (Button) findViewById(R.id.btn_conf);
+
+        linearLayout = (LinearLayout)findViewById(R.id.next_addroom);
+        linearLayout1 = (LinearLayout)findViewById(R.id.first_layout);
+        mConfButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (friendAdapter.edit == true){
-                    friendAdapter.edit = false;
-                }
-                else{
-                    friendAdapter.edit = true;
-                }
-                friendAdapter.notifyDataSetChanged();
+                linearLayout.setVisibility(View.VISIBLE);
+                linearLayout1.setVisibility(View.INVISIBLE);
+
             }
         });
+        mCloseButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                linearLayout1.setVisibility(View.VISIBLE);
+                linearLayout.setVisibility(View.INVISIBLE);
+            }
+        });
+
         // 제목과 내용을 생성자에서 셋팅한다.
         mTitleView.setText(mTitle);
 
         // 클릭 이벤트 셋팅
-        if (mCloseClickListener != null && mEditClickListener != null) {
+        if (mCloseClickListener != null && mConfClickListener != null) {
             mCloseButton.setOnClickListener(mCloseClickListener);
-            mEditButton.setOnClickListener(mEditClickListener);
+            mConfButton.setOnClickListener(mConfClickListener);
         } else if (mCloseClickListener != null
-                && mEditClickListener == null) {
+                && mConfClickListener == null) {
             mCloseButton.setOnClickListener(mCloseClickListener);
         } else {
 
@@ -89,7 +101,7 @@ public class CustomDialog extends Dialog {
     }
 
     // 클릭버튼이 하나일때 생성자 함수로 클릭이벤트를 받는다.
-    public CustomDialog(Context context, String title,
+    public CustomDialog_addR(Context context, String title,
                         View.OnClickListener singleListener) {
         super(context, android.R.style.Theme_Translucent_NoTitleBar);
         this.mTitle = title;
@@ -98,13 +110,13 @@ public class CustomDialog extends Dialog {
     }
 
     // 클릭버튼이 확인과 취소 두개일때 생성자 함수로 이벤트를 받는다
-    public CustomDialog(Context context, String title
+    public CustomDialog_addR(Context context, String title
             , View.OnClickListener closeListener,
-                        View.OnClickListener editListener) {
+                        View.OnClickListener confListener) {
         super(context, android.R.style.Theme_Translucent_NoTitleBar);
         this.mTitle = title;
         this.mCloseClickListener = closeListener;
-        this.mEditClickListener = editListener;
+        this.mConfClickListener = confListener;
         this.context = context;
     }
 

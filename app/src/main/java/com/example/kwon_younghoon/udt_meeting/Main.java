@@ -1,6 +1,5 @@
 package com.example.kwon_younghoon.udt_meeting;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,7 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -22,12 +23,13 @@ public class Main extends AppCompatActivity {
     private CustomDialog_inf mCustomDialoginf;
     private CustomDialog_set mCustomDialogset;
     private CustomDialog_join mCustomDialogjoin;
+    private CustomDialog_addR mCustomDialogaddR;
     private ArrayList<FriendData> arrayList = new ArrayList<FriendData>();
     private ArrayList<Ingrid_item> arrayListItem = new ArrayList<>();
     private ItemAdapter itemAdapter;
-    private FriendAdapter friendAdapter;
-    private Context context;
     private GridView gridView;
+    private Button addButton;
+    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,16 @@ public class Main extends AppCompatActivity {
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        addButton = (Button)findViewById(R.id.add_room);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCustomDialogaddR = new CustomDialog_addR(Main.this, "방 만들기", colseListener_addR);
+                mCustomDialogaddR.show();
+            }
+        });
 
         init();
 
@@ -60,7 +71,7 @@ public class Main extends AppCompatActivity {
                         break;
 
                     case R.id.friends_list:
-                        mCustomDialog = new CustomDialog(Main.this, "친구 목록", colseListener, rightListener);
+                        mCustomDialog = new CustomDialog(Main.this, "친구 목록", colseListener);
                         mCustomDialog.show();
                         break;
 
@@ -109,12 +120,12 @@ public class Main extends AppCompatActivity {
         }
     };
 
-    private View.OnClickListener rightListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            Toast.makeText(getApplicationContext(), "오른쪽버튼 클릭",
-                    Toast.LENGTH_SHORT).show();
+    private View.OnClickListener colseListener_addR = new View.OnClickListener() {
+        public void onClick(View view) {
+            mCustomDialogaddR.dismiss();
         }
     };
+
 
     void init() {
         gridView = (GridView)findViewById(R.id.main_grid);
@@ -133,6 +144,7 @@ public class Main extends AppCompatActivity {
         itemAdapter = new ItemAdapter(arrayListItem, this);
         gridView.setAdapter(itemAdapter);
     }
+
 
 
     @Override
@@ -160,5 +172,6 @@ public class Main extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
 

@@ -89,7 +89,6 @@ public class CustomDialog_frie extends Dialog {
         super(context, android.R.style.Theme_Translucent_NoTitleBar);
         this.mTitle = title;
         this.mCloseClickListener = singleListener;
-
     }
 
     void init(){

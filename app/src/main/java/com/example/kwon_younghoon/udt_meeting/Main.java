@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class Main extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
-    private CustomDialog_frie mCustomDialog_frie;
+    private CustomDialog_frie mCustomDialogfrie;
     private CustomDialog_inf mCustomDialoginf;
     private CustomDialog_set mCustomDialogset;
     private CustomDialog_join mCustomDialogjoin;
@@ -99,8 +99,8 @@ public class Main extends AppCompatActivity {
                         break;
 
                     case R.id.friends_list:
-                        mCustomDialog_frie = new CustomDialog_frie(Main.this, "친구 목록", colseListener);
-                        mCustomDialog_frie.show();
+                        mCustomDialogfrie = new CustomDialog_frie(Main.this, "친구 목록", colseListener_frie);
+                        mCustomDialogfrie.show();
                         break;
 
                     case R.id.setting:
@@ -122,9 +122,9 @@ public class Main extends AppCompatActivity {
     }
 
 
-    private View.OnClickListener colseListener = new View.OnClickListener() {
+    private View.OnClickListener colseListener_frie = new View.OnClickListener() {
         public void onClick(View v) {
-            mCustomDialog_frie.dismiss();
+            mCustomDialogfrie.dismiss();
         }
     };
 

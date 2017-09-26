@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class CustomDialog extends Dialog {
+public class CustomDialog_frie extends Dialog {
 
     private TextView mTitleView;
     private Button mCloseButton;
@@ -25,7 +25,6 @@ public class CustomDialog extends Dialog {
     FriendAdapter friendAdapter;
     private Context context;
     private View.OnClickListener mCloseClickListener;
-    private View.OnClickListener mEditClickListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,7 @@ public class CustomDialog extends Dialog {
         lpWindow.dimAmount = 0.8f;
         getWindow().setAttributes(lpWindow);
 
-        setContentView(R.layout.activity_custom_dialog);
+        setContentView(R.layout.activity_custom_dialog_frie);
 
 
         init();
@@ -58,9 +57,9 @@ public class CustomDialog extends Dialog {
         }) ;
 
 
-        mTitleView = (TextView) findViewById(R.id.txt_title);
-        mCloseButton = (Button) findViewById(R.id.btn_close);
-        mEditButton = (Button) findViewById(R.id.btn_edit);
+        mTitleView = (TextView) findViewById(R.id.frie_title);
+        mCloseButton = (Button) findViewById(R.id.frie_close);
+        mEditButton = (Button) findViewById(R.id.frie_edit);
         mEditButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,11 +76,7 @@ public class CustomDialog extends Dialog {
         mTitleView.setText(mTitle);
 
         // 클릭 이벤트 셋팅
-        if (mCloseClickListener != null && mEditClickListener != null) {
-            mCloseButton.setOnClickListener(mCloseClickListener);
-            mEditButton.setOnClickListener(mEditClickListener);
-        } else if (mCloseClickListener != null
-                && mEditClickListener == null) {
+        if (mCloseClickListener != null) {
             mCloseButton.setOnClickListener(mCloseClickListener);
         } else {
 
@@ -89,23 +84,12 @@ public class CustomDialog extends Dialog {
     }
 
     // 클릭버튼이 하나일때 생성자 함수로 클릭이벤트를 받는다.
-    public CustomDialog(Context context, String title,
-                        View.OnClickListener singleListener) {
+    public CustomDialog_frie(Context context, String title,
+                             View.OnClickListener singleListener) {
         super(context, android.R.style.Theme_Translucent_NoTitleBar);
         this.mTitle = title;
         this.mCloseClickListener = singleListener;
 
-    }
-
-    // 클릭버튼이 확인과 취소 두개일때 생성자 함수로 이벤트를 받는다
-    public CustomDialog(Context context, String title
-            , View.OnClickListener closeListener,
-                        View.OnClickListener editListener) {
-        super(context, android.R.style.Theme_Translucent_NoTitleBar);
-        this.mTitle = title;
-        this.mCloseClickListener = closeListener;
-        this.mEditClickListener = editListener;
-        this.context = context;
     }
 
     void init(){

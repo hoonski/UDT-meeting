@@ -25,8 +25,11 @@ public class FriendAdapter extends BaseAdapter implements Filterable {
     private ArrayList<FriendData> filteredDatalist = friendDatalist;
     Context context;
     boolean edit=false;
+    boolean add=false;
     Filter listFilter;
     Button button;
+    Button button1;
+    View view1;
 
     public FriendAdapter() {
 
@@ -63,13 +66,16 @@ public class FriendAdapter extends BaseAdapter implements Filterable {
         TextView t2 = (TextView)view.findViewById(R.id.friends_nikname);
         TextView t3 = (TextView)view.findViewById(R.id.friends_number);
         button = (Button)view.findViewById(R.id.btn_delete);
+        button1 = (Button)view.findViewById(R.id.btn_add);
+        view1 = (View)view.findViewById(R.id.margin);
 
         if(edit){
             button.setVisibility(View.VISIBLE);
-//            notifyDataSetChanged();
+            view1.setVisibility(View.GONE);
         }
         else{
-            button.setVisibility(View.INVISIBLE);
+            button.setVisibility(View.GONE);
+            view1.setVisibility(View.INVISIBLE);
         }
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +83,20 @@ public class FriendAdapter extends BaseAdapter implements Filterable {
             public void onClick(View view) {
                 friendDatalist.remove(position);
                 notifyDataSetChanged();
+            }
+        });
+
+        if (add){
+            button1.setVisibility(View.VISIBLE);
+            view1.setVisibility(View.GONE);
+        }
+        else{
+            button1.setVisibility(View.GONE);
+        }
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
 

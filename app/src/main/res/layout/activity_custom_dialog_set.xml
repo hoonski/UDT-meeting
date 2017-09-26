@@ -34,7 +34,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/set_text"
+                    android:id="@+id/set_txt"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="87"
@@ -69,17 +69,12 @@
                 </View>
 
                 <Button
-                    android:id="@+id/set_btn"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:background="#ffffff"/>
-
-                <Button
                     android:id="@+id/set_close"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="14"
                     android:background="#265afd"
+                    android:gravity="center"
                     android:text="닫기"
                     android:textColor="#ffffff"/>
             </LinearLayout>

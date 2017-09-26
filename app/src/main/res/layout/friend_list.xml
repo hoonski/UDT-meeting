@@ -48,13 +48,31 @@
 
         <Button
             android:id="@+id/btn_delete"
-            android:visibility="invisible"
+            android:visibility="gone"
             android:layout_weight="50"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:background="#265afd"
             android:text="삭제"
             android:textColor="#ffffff"/>
+
+        <Button
+            android:id="@+id/btn_add"
+            android:visibility="gone"
+            android:layout_weight="50"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="#265afd"
+            android:text="추가"
+            android:textColor="#ffffff"/>
+
+        <View
+            android:id="@+id/margin"
+            android:visibility="invisible"
+            android:layout_weight="50"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </View>
 
         <View
             android:layout_weight="2"

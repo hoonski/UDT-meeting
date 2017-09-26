@@ -8,8 +8,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 /**
  * Created by kwon-younghoon on 2017. 9. 24..
  */
@@ -19,8 +17,6 @@ public class CustomDialog_inf extends Dialog {
     private Button mCloseButton;
     private Button mRightButton;
     private String mTitle;
-    ArrayList<FriendData> arrayList = new ArrayList<FriendData>();
-    FriendAdapter friendAdapter;
     private Context context;
     private View.OnClickListener mCloseClickListener;
     private View.OnClickListener mRightClickListener;
@@ -37,7 +33,7 @@ public class CustomDialog_inf extends Dialog {
 
         setContentView(R.layout.activity_custom_dialog_inf);
 
-        mTitleView = (TextView) findViewById(R.id.info_text);
+        mTitleView = (TextView) findViewById(R.id.info_txt);
         mCloseButton = (Button) findViewById(R.id.info_close);
         mRightButton = (Button) findViewById(R.id.info_btn);
 

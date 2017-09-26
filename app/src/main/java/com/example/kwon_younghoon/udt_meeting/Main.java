@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
@@ -19,16 +20,19 @@ import java.util.ArrayList;
 
 public class Main extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
-    private CustomDialog mCustomDialog;
+    private CustomDialog_frie mCustomDialog_frie;
     private CustomDialog_inf mCustomDialoginf;
     private CustomDialog_set mCustomDialogset;
     private CustomDialog_join mCustomDialogjoin;
     private CustomDialog_addR mCustomDialogaddR;
+    private CustomDialog_showR mCustomDialogshowR;
     private ArrayList<FriendData> arrayList = new ArrayList<FriendData>();
     private ArrayList<Ingrid_item> arrayListItem = new ArrayList<>();
     private ItemAdapter itemAdapter;
     private GridView gridView;
     private Button addButton;
+    private Button upFrameButton;
+    private Button downFrameButton;
     private LinearLayout linearLayout;
 
     @Override
@@ -42,18 +46,42 @@ public class Main extends AppCompatActivity {
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        init();
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        addButton = (Button)findViewById(R.id.add_room);
-        addButton.setOnClickListener(new View.OnClickListener() {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                mCustomDialogaddR = new CustomDialog_addR(Main.this, "방 만들기", colseListener_addR);
-                mCustomDialogaddR.show();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                mCustomDialogshowR = new CustomDialog_showR(Main.this, "방 입장" ,colseListener_showR, colseListener_showR1);
+                mCustomDialogshowR.show();
             }
         });
 
-        init();
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        addButton = (Button)findViewById(R.id.main_add_room);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCustomDialogaddR = new CustomDialog_addR(Main.this, "방 만들기", colseListener_addR, appListener);
+                mCustomDialogaddR.show();
+            }
+        });
+        linearLayout = (LinearLayout)findViewById(R.id.main_uped_layout);
+        upFrameButton = (Button)findViewById(R.id.main_up_frame);
+        upFrameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                linearLayout.setVisibility(View.VISIBLE);
+            }
+        });
+        downFrameButton = (Button)findViewById(R.id.main_down_frame);
+        downFrameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                linearLayout.setVisibility(View.INVISIBLE);
+            }
+        });
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -71,8 +99,8 @@ public class Main extends AppCompatActivity {
                         break;
 
                     case R.id.friends_list:
-                        mCustomDialog = new CustomDialog(Main.this, "친구 목록", colseListener);
-                        mCustomDialog.show();
+                        mCustomDialog_frie = new CustomDialog_frie(Main.this, "친구 목록", colseListener);
+                        mCustomDialog_frie.show();
                         break;
 
                     case R.id.setting:
@@ -87,18 +115,16 @@ public class Main extends AppCompatActivity {
                     case R.id.nav_sub_menu_item02:
                         Toast.makeText(Main.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
                         break;
-
                 }
                 return true;
             }
         });
-
     }
 
 
     private View.OnClickListener colseListener = new View.OnClickListener() {
         public void onClick(View v) {
-            mCustomDialog.dismiss();
+            mCustomDialog_frie.dismiss();
         }
     };
 
@@ -126,6 +152,23 @@ public class Main extends AppCompatActivity {
         }
     };
 
+    private View.OnClickListener appListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            mCustomDialogaddR.dismiss();
+        }
+    };
+
+    private View.OnClickListener colseListener_showR = new View.OnClickListener() {
+        public void onClick(View view) {
+            mCustomDialogshowR.dismiss();
+        }
+    };
+
+    private View.OnClickListener colseListener_showR1 = new View.OnClickListener() {
+        public void onClick(View view) {
+            mCustomDialogshowR.dismiss();
+        }
+    };
 
     void init() {
         gridView = (GridView)findViewById(R.id.main_grid);

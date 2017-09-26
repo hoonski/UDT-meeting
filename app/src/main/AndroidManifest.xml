@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="Main">
+        <activity android:name=".Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,13 +24,15 @@
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
 
-        <activity android:name=".CustomDialog" />
+        <activity android:name=".CustomDialog_frie" />
         <activity android:name=".udt_meeting" />
         <activity android:name=".information" />
         <activity android:name=".CustomDialog_inf" />
         <activity android:name=".CustomDialog_set" />
         <activity android:name=".CustomDialog_join" />
-        <activity android:name=".CustomDialog_addR"></activity>
+        <activity android:name=".CustomDialog_addR" />
+        <activity android:name=".CustomDialog_showR" />
+        <activity android:name=".ChattingRoom"></activity>
     </application>
 
 </manifest>

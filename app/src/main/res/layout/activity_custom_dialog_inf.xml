@@ -6,21 +6,11 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="17"></View>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="60"
         android:orientation="horizontal">
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="17"></View>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -66,81 +56,87 @@
                     android:layout_weight="35"
                     android:orientation="vertical">
 
-
                     <LinearLayout
-                        android:layout_weight="7"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:orientation="horizontal" >
+                        android:layout_weight="7"
+                        android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_weight="3"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-                            <View
-                                android:layout_weight="80"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:background="#ffffff">
-                            </View>
-                            <View
-                                android:layout_weight="5"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:background="#bb000000">
-                            </View>
-                            <View
-                                android:layout_weight="80"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:background="#ffffff">
-                            </View>
-                        </LinearLayout>
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:background="#ffffff"
-                            android:src="@drawable/a" />
-                        <LinearLayout
-                            android:layout_weight="3"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-                            <View
-                                android:layout_weight="80"
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:background="#ffffff">
-                            </View>
-                            <View
-                                android:layout_weight="5"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="80"
+                                    android:background="#ffffff"></View>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="5"
+                                    android:background="#000000"></View>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="80"
+                                    android:background="#ffffff"></View>
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:background="#bb000000">
-                            </View>
-                            <View
-                                android:layout_weight="80"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:background="#ffffff">
-                            </View>
-                        </LinearLayout>
+                                android:layout_height="match_parent">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="3"
+                                        android:visibility="invisible"></View>
+
+                                    <ImageView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="3"
+                                        android:background="#ffffff"
+                                        android:src="@drawable/a" />
+
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="3"
+                                        android:visibility="invisible"></View>
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </FrameLayout>
+
+
                     </LinearLayout>
 
 
-                        <TextView
-                            android:id="@+id/info_nikname"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="4"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="닉네임"
-                            android:textColor="#bb000000"
-                            android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/info_nikname"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
+                        android:background="#ffffff"
+                        android:gravity="center"
+                        android:text="닉네임"
+                        android:textColor="#bb000000"
+                        android:textSize="20dp" />
 
 
                     <View
@@ -157,124 +153,105 @@
                     android:layout_weight="20"
                     android:orientation="vertical">
 
-                    <ScrollView
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="33">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="#ffffff">
 
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/info_name"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_height="35dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="이름"
+                            android:textColor="#bb000000"
+                            android:textSize="20dp" />
 
-                            <TextView
-                                android:id="@+id/info_name"
-                                android:layout_width="match_parent"
-                                android:layout_height="35dp"
-                                android:background="#ffffff"
-                                android:gravity="center"
-                                android:text="이름"
-                                android:textColor="#bb000000"
-                                android:textSize="20dp" />
+                        <TextView
+                            android:id="@+id/info_undergraduate"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="학과/학부"
+                            android:textColor="#bb000000"
+                            android:textSize="20dp" />
 
-                            <TextView
-                                android:id="@+id/info_undergraduate"
-                                android:layout_width="match_parent"
-                                android:layout_height="35dp"
-                                android:background="#ffffff"
-                                android:gravity="center"
-                                android:text="학과/학부"
-                                android:textColor="#bb000000"
-                                android:textSize="20dp" />
+                        <TextView
+                            android:id="@+id/info_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="학번"
+                            android:textColor="#bb000000"
+                            android:textSize="20dp" />
 
-                            <TextView
-                                android:id="@+id/info_number"
-                                android:layout_width="match_parent"
-                                android:layout_height="35dp"
-                                android:background="#ffffff"
-                                android:gravity="center"
-                                android:text="학번"
-                                android:textColor="#bb000000"
-                                android:textSize="20dp" />
+                        <TextView
+                            android:id="@+id/info_age"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="나이"
+                            android:textColor="#bb000000"
+                            android:textSize="20dp" />
 
-                            <TextView
-                                android:id="@+id/info_age"
-                                android:layout_width="match_parent"
-                                android:layout_height="35dp"
-                                android:background="#ffffff"
-                                android:gravity="center"
-                                android:text="나이"
-                                android:textColor="#bb000000"
-                                android:textSize="20dp" />
-
-                        </LinearLayout>
-
-
-                    </ScrollView>
-
+                    </LinearLayout>
 
                 </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="10"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="90"
-                    android:background="#ffffff"></View>
-
-                <Button
-                    android:id="@+id/info_btn"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:background="#ffffff" />
 
                 <LinearLayout
-                    android:layout_weight="14"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="10"
+                    android:orientation="horizontal">
 
                     <View
-                        android:layout_weight="3"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:background="#ffffff">
-                    </View>
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="90"
+                        android:background="#ffffff"></View>
 
                     <Button
-                        android:id="@+id/info_close"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="17"
-                        android:background="#265afd"
-                        android:text="닫기"
-                        android:gravity="center"
-                        android:textColor="#ffffff"/>
+                        android:id="@+id/info_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:background="#ffffff" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="14"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="6"
+                            android:background="#ffffff"></View>
+
+                        <Button
+                            android:id="@+id/info_close"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="17"
+                            android:background="#265afd"
+                            android:gravity="center"
+                            android:text="닫기"
+                            android:textColor="#ffffff" />
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
-
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="17"></View>
+
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="17"></View>
-
 </LinearLayout>
